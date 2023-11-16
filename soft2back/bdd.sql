@@ -1,7 +1,48 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2023-11-09 22:21:15.465
 
--- tables
+-- Table: Usuarios
+CREATE TABLE Usuarios (
+    UserID serial  NOT NULL,
+    Nombre varchar(100)  NOT NULL,
+    Apellido varchar(100)  NOT NULL,
+    NombreUsuario varchar(50)  NOT NULL,
+    Correo varchar(255)  NOT NULL,
+    FotoPerfil bytea  NULL,
+    CONSTRAINT AK_0 UNIQUE (NombreUsuario) NOT DEFERRABLE  INITIALLY IMMEDIATE,
+    CONSTRAINT Usuarios_pk PRIMARY KEY (UserID)
+);
+
+-- Table: Categoria
+CREATE TABLE Categoria (
+    CategoriaID serial  NOT NULL,
+    NombreCategoria varchar(50)  NOT NULL,
+    CONSTRAINT Categoria_pk PRIMARY KEY (CategoriaID)
+);
+
+-- Table: Ingredientes
+CREATE TABLE Ingredientes (
+    IngredienteID serial  NOT NULL,
+    Nombre varchar(100)  NOT NULL,
+    Tipo varchar(50)  NULL,
+    Cantidad int  NOT NULL,
+    CONSTRAINT Ingredientes_pk PRIMARY KEY (IngredienteID)
+);
+
+-- Table: Recetas
+CREATE TABLE Recetas (
+    RecetaID serial  NOT NULL,
+    UserID int  NOT NULL,
+    NombreReceta varchar(255)  NOT NULL,
+    Procedimiento text  NOT NULL,
+    TiempoPreparacion int  NOT NULL,
+    Porciones int  NOT NULL,
+    DescripcionCorta text  NOT NULL,
+    ImagenReceta bytea  NOT NULL,
+    Categoria_CategoriaID int  NOT NULL,
+    CONSTRAINT Recetas_pk PRIMARY KEY (RecetaID)
+);
+
 -- Table: Calificaciones
 CREATE TABLE Calificaciones (
     CalificacionID serial  NOT NULL,
@@ -13,13 +54,6 @@ CREATE TABLE Calificaciones (
     CONSTRAINT Calificaciones_pk PRIMARY KEY (CalificacionID)
 );
 
--- Table: Categoria
-CREATE TABLE Categoria (
-    CategoriaID serial  NOT NULL,
-    NombreCategoria varchar(50)  NOT NULL,
-    CONSTRAINT Categoria_pk PRIMARY KEY (CategoriaID)
-);
-
 -- Table: Comentarios
 CREATE TABLE Comentarios (
     ComentarioID serial  NOT NULL,
@@ -28,15 +62,6 @@ CREATE TABLE Comentarios (
     TextoComentario text  NOT NULL,
     FechaHora timestamp  NULL DEFAULT current_timestamp,
     CONSTRAINT Comentarios_pk PRIMARY KEY (ComentarioID)
-);
-
--- Table: Ingredientes
-CREATE TABLE Ingredientes (
-    IngredienteID serial  NOT NULL,
-    Nombre varchar(100)  NOT NULL,
-    Tipo varchar(50)  NULL,
-    Cantidad int  NOT NULL,
-    CONSTRAINT Ingredientes_pk PRIMARY KEY (IngredienteID)
 );
 
 -- Table: ListasDeCompras
@@ -55,20 +80,6 @@ CREATE TABLE ListasDeCompras_Ingredientes (
     CONSTRAINT ListasDeCompras_Ingredientes_pk PRIMARY KEY (LisComprasIngredientesID)
 );
 
--- Table: Recetas
-CREATE TABLE Recetas (
-    RecetaID serial  NOT NULL,
-    UserID int  NOT NULL,
-    NombreReceta varchar(255)  NOT NULL,
-    Procedimiento text  NOT NULL,
-    TiempoPreparacion int  NOT NULL,
-    Porciones int  NOT NULL,
-    DescripcionCorta text  NOT NULL,
-    ImagenReceta bytea  NOT NULL,
-    Categoria_CategoriaID int  NOT NULL,
-    CONSTRAINT Recetas_pk PRIMARY KEY (RecetaID)
-);
-
 -- Table: RecetasGuardadas
 CREATE TABLE RecetasGuardadas (
     RecetasGuardadasID int  NOT NULL,
@@ -84,18 +95,6 @@ CREATE TABLE Recetas_Ingredientes (
     RecetaID int  NOT NULL,
     IngredienteID int  NOT NULL,
     CONSTRAINT Recetas_Ingredientes_pk PRIMARY KEY (ReceIngreID)
-);
-
--- Table: Usuarios
-CREATE TABLE Usuarios (
-    UserID serial  NOT NULL,
-    Nombre varchar(100)  NOT NULL,
-    Apellido varchar(100)  NOT NULL,
-    NombreUsuario varchar(50)  NOT NULL,
-    Correo varchar(255)  NOT NULL,
-    FotoPerfil bytea  NULL,
-    CONSTRAINT AK_0 UNIQUE (NombreUsuario) NOT DEFERRABLE  INITIALLY IMMEDIATE,
-    CONSTRAINT Usuarios_pk PRIMARY KEY (UserID)
 );
 
 -- foreign keys
@@ -204,5 +203,3 @@ ALTER TABLE Recetas ADD CONSTRAINT Recetas_Categoria
 ;
 
 -- End of file.
-
-
