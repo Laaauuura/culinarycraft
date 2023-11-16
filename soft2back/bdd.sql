@@ -45,7 +45,7 @@ CREATE TABLE Recetas (
 
 -- Table: Calificaciones
 CREATE TABLE Calificaciones (
-    CalificacionID serial  NOT NULL,
+    CalificacionID serial  NOT NULL,    
     RecetaID int  NOT NULL,
     UserID int  NOT NULL,
     Puntuacion int  NULL,
