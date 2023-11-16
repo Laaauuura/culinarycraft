@@ -1,13 +1,13 @@
-package com.culinarycraft.culinarycraft;
+package com.culinarycraft.soft2back;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CulinarycraftbackApplication {
+public class Soft2backApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CulinarycraftbackApplication.class, args);
+		SpringApplication.run(Soft2backApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.culinarycraft.culinarycraft;
+package com.culinarycraft.soft2back;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CulinarycraftbackApplicationTests {
+class Soft2backApplicationTests {
 
 	@Test
 	void contextLoads() {
