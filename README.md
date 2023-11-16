@@ -10,6 +10,10 @@ Para poder hacer correr el proyecto se necesita tener instalado lo siguiente:
 - PostgreSQL 13.4
 
 ## Configuración de la base de datos
+Se debe cabiar de carpeta a `soft2back` con el siguiente comando:
+```bash
+cd soft2back
+```
 
 Para poder hacer correr el proyecto se necesita tener una base de datos en PostgreSQL con el nombre de `bddrecetas` y con el usuario `postgres` y contraseña `123456`. Si se desea cambiar estos valores se debe modificar el archivo `application.yaml` en la carpeta `src/main/resources`.
 
